@@ -1,8 +1,8 @@
-package com.epam.customaijira.model;
+package com.ai.poc.agent.jira.dto;
 
 import java.util.List;
 
-public class DialResponse {
+public class DialResponseDto {
     public List<Choice> choices;
 
     public static class Choice {

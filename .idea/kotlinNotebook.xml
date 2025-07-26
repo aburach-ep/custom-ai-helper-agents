@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="KotlinNotebookOptionsProvider">
+    <option name="extraEnvironmentVariables">
+      <map>
+        <entry key="EPM_JIRA_TOKEN" value="tXfeKYWbeyTklxKa43SIr8SmW0G3BjNDWsd7Cp" />
+      </map>
+    </option>
+  </component>
+</project>
