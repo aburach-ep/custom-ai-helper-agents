@@ -16,6 +16,7 @@ public class TicketController {
         this.jiraTicketAnalysisService = jiraTicketAnalysisService;
     }
 
+    // TODO: update endpoint to POST with just projectName and searchText as request body
     @GetMapping("/tickets/summaries")
     public List<Map<String, String>> getTicketSummaries() {
         return jiraTicketAnalysisService.analyzeTickets("EPMCDMETST", "ai agent");

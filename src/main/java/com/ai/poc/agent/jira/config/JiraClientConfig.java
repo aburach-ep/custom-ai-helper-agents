@@ -2,6 +2,7 @@ package com.ai.poc.agent.jira.config;
 
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 
@@ -20,13 +21,10 @@ public class JiraClientConfig {
     }
 }
 
+@RequiredArgsConstructor
 class JiraBearerTokenInterceptor implements RequestInterceptor {
 
-    private String jiraApiToken;
-
-    public JiraBearerTokenInterceptor(String accessToken) {
-        this.jiraApiToken = accessToken;
-    }
+    private final String jiraApiToken;
 
     @Override
     public void apply(RequestTemplate template) {

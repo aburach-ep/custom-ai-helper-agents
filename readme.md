@@ -3,21 +3,11 @@
 This project provides customizable AI agent helpers, starting with a Jira integration. It is designed to connect to Jira, retrieve tickets based on configurable criteria, and generate concise summaries using the DIAL AI provider. The architecture is extensible for future integrations with other systems.
 
 ## Features
-- Connects to Jira using FeignClient
-- Retrieves tickets for a configurable project and subject
-- Summarizes each ticket (3-5 sentences) using DIAL AI
-- All credentials and parameters are configurable via `application.yaml`
+- Jira tickets' review agent. The agent connects to Jira, retrieves tickets for specified project and searchText:
+  - for each found ticket:
+    - summarizes the ticket using external AI provider (DIAL API)
+    - reviews the ticket description using DIAL and generates readiness summary with questions
 - Built with Java 21, Spring Boot, and Gradle
-
-## Project Structure
-- **Spring Boot main class:** `CustomAiJiraAgentApplication.java`
-- **Feign configuration:** `config/FeignConfig.java`
-- **Feign clients:** `client/JiraClient.java`, `client/DialClient.java`
-- **Models:** `model/JiraIssue.java`, `model/DialRequest.java`, `model/DialResponse.java`
-- **Service:** `service/TicketSummaryService.java`
-- **REST Controller:** `controller/TicketController.java`
-- **Gradle build and settings:** `build.gradle`, `settings.gradle`
-- **Config:** `src/main/resources/application.yaml`
 
 ## Getting Started
 1. Add your Jira and DIAL API keys to `application.yaml`.
