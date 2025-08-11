@@ -16,6 +16,7 @@ public class CustomAiJiraAgentApplication {
         ConfigurableApplicationContext applicationContext = SpringApplication.run(CustomAiJiraAgentApplication.class, args);
 
         reviewAndAnalyzeJiraTicketReadiness(applicationContext, "EPMCDMETST", "RAP application");
+        applicationContext.close();
     }
 
     private static void reviewAndAnalyzeJiraTicketReadiness(ConfigurableApplicationContext applicationContext, String projectName, String jiraSearchText) {
