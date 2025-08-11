@@ -24,7 +24,6 @@ build/
 bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
-*.lock
 
 ### IntelliJ IDEA ###
 .idea
