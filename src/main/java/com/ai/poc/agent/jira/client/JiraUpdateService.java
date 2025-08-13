@@ -51,7 +51,7 @@ public class JiraUpdateService {
             );
 
             if (response.getStatusCode().is2xxSuccessful()) {
-                log.info("Successfully added comment to ticket {}", ticketKey);
+                log.info("Successfully added comment to ticket {}", jiraBaseUrl + "/browse/" + ticketKey);
             } else {
                 log.error("Failed to add comment to ticket {}. Status: {}", ticketKey, response.getStatusCode());
             }
