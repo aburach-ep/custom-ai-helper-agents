@@ -15,7 +15,8 @@ public class CustomAiJiraAgentApplication {
     public static void main(String[] args) {
         ConfigurableApplicationContext applicationContext = SpringApplication.run(CustomAiJiraAgentApplication.class, args);
 
-        reviewAndAnalyzeJiraTicketReadiness(applicationContext, "EPMCDMETST", "RAP application");
+//        reviewAndAnalyzeJiraTicketReadiness(applicationContext, "EPMCDMETST", "RAP application");
+        reviewAndAnalyzeJiraTicketReadiness(applicationContext, "EPMCDMETST", "experimentation with MCP");
         applicationContext.close();
     }
 
