@@ -34,6 +34,10 @@ dependencies {
     implementation("org.apache.commons:commons-collections4:${commonsCollectionsVersion}")
     implementation "org.apache.commons:commons-text:${commonsTextVersion}"
     implementation "com.google.guava:guava:${guavaVersion}"
+
+    // default RestTemplate (and its default SimpleClientHttpRequestFactory)
+    // does not support the HTTP PATCH method when using the JDK's HttpURLConnection
+    implementation 'org.apache.httpcomponents.client5:httpclient5:5.3.1'
     
     // MCP dependencies
     implementation 'com.fasterxml.jackson.core:jackson-databind'    // TODO: check - is this really needed?
@@ -43,4 +47,8 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.assertj:assertj-core:3.27.3'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-} 
+}
+test {
+    useJUnitPlatform()
+//    finalizedBy jacocoTestReport
+}
