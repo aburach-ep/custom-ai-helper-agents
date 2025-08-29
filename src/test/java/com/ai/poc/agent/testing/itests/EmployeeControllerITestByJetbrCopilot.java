@@ -1,5 +1,7 @@
 package com.ai.poc.agent.testing.itests;
 
+import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
+import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
+import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.test.context.ActiveProfiles;
 
 import java.util.HashMap;
@@ -16,6 +19,10 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * Overall Intellij Idea's Copilot plugin generated tests with edge cases,
+ * 5 of 6 were failing  and required fixing / complementing simplistic logic
+ */
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("local")
 public class EmployeeControllerITestByJetbrCopilot {
@@ -31,6 +38,12 @@ public class EmployeeControllerITestByJetbrCopilot {
     @BeforeEach
     void setUp() {
         baseUrl = "http://localhost:" + port + "/api/employees";
+        // Enable PATCH support, as default RestTemplate (and its default SimpleClientHttpRequestFactory)
+        // does not support PATCH method when using JDK's HttpURLConnection
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        restTemplate.getRestTemplate().setRequestFactory(
+                new HttpComponentsClientHttpRequestFactory(httpClient)
+        );
     }
 
     @Test

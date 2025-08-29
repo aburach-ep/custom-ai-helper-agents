@@ -21,6 +21,10 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * Overall Cursor IDE generated tests which verified happy paths of the exposed by REST API
+ * endpoints, and after few simple fixes 6 of 6 generated Integration tests passed.
+ */
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("local")
 public class EmployeeControllerITestByCursor {
