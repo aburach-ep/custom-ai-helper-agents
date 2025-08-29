@@ -20,6 +20,8 @@ ext {
     guavaVersion = '33.2.0-jre'
     githubApiVersion = '1.327'
     JavaWebSocketVersion = '1.5.3'
+    assertjCoreVersion = '3.27.3'
+    restAssuredVersion = '5.4.0'
 }
 
 dependencies {
@@ -45,7 +47,8 @@ dependencies {
     implementation 'org.slf4j:slf4j-api'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'org.assertj:assertj-core:3.27.3'
+    testImplementation "org.assertj:assertj-core:${assertjCoreVersion}"
+    testImplementation "io.rest-assured:rest-assured:${restAssuredVersion}"
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 test {
