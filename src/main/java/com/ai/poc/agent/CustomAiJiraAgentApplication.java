@@ -1,4 +1,4 @@
-package com.ai.poc.agent.jira;
+package com.ai.poc.agent;
 
 import com.ai.poc.agent.jira.service.JiraTicketAnalysisService;
 import org.springframework.boot.SpringApplication;
@@ -16,8 +16,8 @@ public class CustomAiJiraAgentApplication {
         ConfigurableApplicationContext applicationContext = SpringApplication.run(CustomAiJiraAgentApplication.class, args);
 
 //        reviewAndAnalyzeJiraTicketReadiness(applicationContext, "EPMCDMETST", "RAP application");
-        reviewAndAnalyzeJiraTicketReadiness(applicationContext, "EPMCDMETST", "experimentation with MCP");
-        applicationContext.close();
+//        reviewAndAnalyzeJiraTicketReadiness(applicationContext, "EPMCDMETST", "experimentation with MCP");
+//        applicationContext.close();
     }
 
     private static void reviewAndAnalyzeJiraTicketReadiness(ConfigurableApplicationContext applicationContext, String projectName, String jiraSearchText) {
